@@ -1,0 +1,14 @@
+package com.meshtier.dto.article;
+
+import lombok.Data;
+
+@Data
+public class CreateProductDTO {
+    private String name;
+    private String description;
+    private int quantity;
+    private double price;
+    private Long categoryId;
+    private Long supplierId;
+    private String barCode;
+}
