@@ -5,4 +5,4 @@ Stock Smart AI is an innovative inventory stock tracker designed to revolutioniz
 
 ### Initial Architecture
 
-![stock smart ai architecture](https://github.com/fabandalm/stock-smart-ai/images/stock-smart-ai-architecture.png?raw=true)
+![stock smart ai architecture](/images/stock-smart-ai_architecture.png)
