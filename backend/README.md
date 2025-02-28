@@ -14,3 +14,8 @@ docker push fabandalm/stock-smart-ai-api:1.0.0
 ```
 docker run -p 8080:8080  --rm --name stock-smart-ai-api fabandalm/stock-smart-ai-api:1.0.0
 ```
+
+### Access to api swagger
+```
+http://localhost:8080/swagger-ui/index.html
+```
