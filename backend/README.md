@@ -1,5 +1,7 @@
 # Stock Smart Backend API
 
+```
+
 ### Build stock smart ai api docker image
 ``` 
 docker build -t fabandalm/stock-smart-ai-api:1.0.0 .
@@ -19,3 +21,5 @@ docker run -p 8080:8080  --rm --name stock-smart-ai-api fabandalm/stock-smart-ai
 ```
 http://localhost:8080/swagger-ui/index.html
 ```
+
+

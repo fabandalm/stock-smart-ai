@@ -12,41 +12,41 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/inbound/")
 public class InboundStockController {
-    private final IInboundStockService entreeStockService;
+    private final IInboundStockService inboundStockService;
 
     public InboundStockController(IInboundStockService entreeStockService) {
-        this.entreeStockService = entreeStockService;
+        this.inboundStockService = entreeStockService;
     }
 
     @PostMapping("stock")
-    public ResponseEntity<InboundStock> CreateEntreeStock(@RequestBody CreateInboundStockDTO createEntreeStockDto) {
-        return ResponseEntity.ok(entreeStockService.CreateInboundStock(createEntreeStockDto));
+    public ResponseEntity<InboundStock> CreateInboundStock(@RequestBody CreateInboundStockDTO createInboundStockDTO) {
+        return ResponseEntity.ok(inboundStockService.CreateInboundStock(createInboundStockDTO));
     }
 
     @PutMapping("stock/{id}")
     public ResponseEntity<InboundStock> UpdateEntreeStock(@PathVariable("id") Long id,
                                                           @RequestBody UpdateInboundStockDTO entreeStockDto) {
 
-        return ResponseEntity.ok(entreeStockService.UpdateInboundStock(entreeStockDto, id));
+        return ResponseEntity.ok(inboundStockService.UpdateInboundStock(entreeStockDto, id));
     }
 
     @GetMapping("stock/{id}")
     public ResponseEntity<InboundStock> GetEntreeStockById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(entreeStockService.GetInboundStockById(id));
+        return ResponseEntity.ok(inboundStockService.GetInboundStockById(id));
     }
 
     @GetMapping("stock/supplier/{id}")
     public ResponseEntity<List<InboundStock>> GetEntreeStockByFournisseur(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(entreeStockService.GetInboundStockBySupplier(id));
+        return ResponseEntity.ok(inboundStockService.GetInboundStockBySupplier(id));
     }
 
     @GetMapping("stock/product/{id}")
     public ResponseEntity<List<InboundStock>> GetEntreeStockByArticle(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(entreeStockService.GetInboundStockByProduct(id));
+        return ResponseEntity.ok(inboundStockService.GetInboundStockByProduct(id));
     }
 
-    @GetMapping("stock")
-    public ResponseEntity<List<InboundStock>> GetAllEntreeStock() {
-        return ResponseEntity.ok(entreeStockService.GetAllInboundStock());
+    @GetMapping("stocks")
+    public ResponseEntity<List<InboundStock>> GetAllInboundStock() {
+        return ResponseEntity.ok(inboundStockService.GetAllInboundStock());
     }
 }
