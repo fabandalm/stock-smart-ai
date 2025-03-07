@@ -22,20 +22,20 @@ services:
     networks:
       - app-network
 
-  ui:
-    image: fabandalm/stock-smart-ai-ui:1.0.0
-    container_name: stock-smart-ai-ui
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./path-to-your-react-app:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-    networks:
-      - app-network
-    depends_on:
-      - api
+#  ui:
+#    image: fabandalm/stock-smart-ai-ui:1.0.0
+#    container_name: stock-smart-ai-ui
+#    ports:
+#      - "3000:3000"
+#    volumes:
+#      - ./path-to-your-react-app:/app
+#      - /app/node_modules
+#    environment:
+#      - NODE_ENV=development
+#    networks:
+#      - app-network
+#    depends_on:
+#      - api
 
 volumes:
   postgres-volume:
