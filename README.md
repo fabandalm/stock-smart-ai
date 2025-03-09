@@ -29,4 +29,4 @@ docker-compose down
 
 ### Architecture
 
-![stock smart ai architecture](/images/stock-smart-ai_architecture.png)
+![stock smart_ai-architecture](/images/stock_smart_ai-architecture.png)

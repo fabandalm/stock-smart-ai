@@ -3,7 +3,7 @@ import { AddInboundStockDTO } from "../components/AddInboundStock/AddInboundStoc
 import { AddOutboundStockDTO } from "../components/AddOutboundStock/AddOutboundStock";
 import { IOStock, InboundStock, OutboundStock } from "../helpers/declarations";
 import { IOMapper } from "../helpers/formatters";
-const apiBase = "http://localhost:8080";
+const apiBase = "http://backend:8080";
 
 export const GetAllIOStock = async (): Promise<IOStock[]> => {
   try {

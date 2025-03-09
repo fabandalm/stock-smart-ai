@@ -2,7 +2,7 @@ import { AddSupplierDTO } from "../components/AddSupplier/AddSupplier";
 import { Supplier } from "../helpers/declarations";
 import axios from "axios";
 
-const apiBase = "http://localhost:8080";
+const apiBase = "http://backend:8080";
 
 export const AllSuppliers = async (): Promise<Supplier[]> => {
   try {

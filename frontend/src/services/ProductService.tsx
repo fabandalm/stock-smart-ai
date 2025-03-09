@@ -2,7 +2,7 @@ import { AddProductDTO } from "../components/AddProduct/AddProduct";
 import { Product } from "../helpers/declarations";
 import axios from "axios";
 
-const apiBase = "http://localhost:8080";
+const apiBase = "http://backend:8080";
 export const AllProducts = async (): Promise<Product[]> => {
   try {
     const response = await axios.get<any>(

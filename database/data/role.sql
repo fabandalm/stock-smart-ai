@@ -1,2 +1,6 @@
-INSERT INTO public."role" ("name") VALUES ('Technician'),
- ('Engineer'), ('Operator'),('Supervisor');
+INSERT INTO public."role" ("name")
+VALUES
+    ('Technician'),
+    ('Engineer'),
+    ('Operator'),
+    ('Supervisor');

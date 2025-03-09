@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  api:
+  backend:
     image: fabandalm/stock-smart-ai-api:1.0.0
     depends_on:
       - db
@@ -19,23 +19,19 @@ services:
       - "5432:5432"
     volumes:
       - postgres-volume:/var/lib/postgresql/data
+      - ../database/data:/docker-entrypoint-initdb.d
     networks:
       - app-network
 
-#  ui:
-#    image: fabandalm/stock-smart-ai-ui:1.0.0
-#    container_name: stock-smart-ai-ui
-#    ports:
-#      - "3000:3000"
-#    volumes:
-#      - ./path-to-your-react-app:/app
-#      - /app/node_modules
-#    environment:
-#      - NODE_ENV=development
-#    networks:
-#      - app-network
-#    depends_on:
-#      - api
+  ui:
+    image: fabandalm/stock-smart-ai-ui:1.0.0
+    container_name: stock-smart-ai-ui
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
 
 volumes:
   postgres-volume:
