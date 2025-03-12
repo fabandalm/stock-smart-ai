@@ -3,6 +3,7 @@ version: '3.8'
 services:
   backend:
     image: fabandalm/stock-smart-ai-api:1.0.0
+    platform: linux/amd64
     depends_on:
       - db
     ports:
@@ -12,6 +13,7 @@ services:
 
   db:
     image: postgres:12.6
+    platform: linux/amd64
     container_name: stock-smart-ai-db
     environment:
       POSTGRES_PASSWORD: mysecretpassword
@@ -25,6 +27,7 @@ services:
 
   ui:
     image: fabandalm/stock-smart-ai-ui:1.0.0
+    platform: linux/amd64
     container_name: stock-smart-ai-ui
     ports:
       - "80:80"
