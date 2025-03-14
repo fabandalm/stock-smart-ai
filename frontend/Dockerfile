@@ -18,6 +18,13 @@ RUN npm run build
 
 # Step 7: Use nginx to serve the app
 FROM nginx:stable-alpine
+
+# Remove default Nginx config (optional, but recommended)
+RUN rm -f /etc/nginx/nginx.conf
+
+# Copy custom Nginx configuration into the container
+COPY nginx.conf /etc/nginx/nginx.conf
+
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Step 8: Expose port 80 to the outer world

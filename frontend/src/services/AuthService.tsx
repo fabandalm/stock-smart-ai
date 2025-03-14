@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiBase = "http://backend:8080";
+const apiBase = "http://localhost:8080";
 
 export const Login = async (username: string, password: string) => {
   try {

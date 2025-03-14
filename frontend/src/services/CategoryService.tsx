@@ -2,7 +2,7 @@ import { AddCategoryDTO } from "../components/AddCategory/AddCategory";
 import { Category } from "../helpers/declarations";
 import axios from "axios";
 
-const apiBase = "http://backend:8080";
+const apiBase = "http://localhost:8080";
 
 export const AllCategories = async (): Promise<Category[]> => {
   try {
