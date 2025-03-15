@@ -1,7 +1,5 @@
 # Stock Smart Backend API
 
-```
-
 ### Build stock smart ai api docker image
 ``` 
 docker build -t fabandalm/stock-smart-ai-api:1.0.0 .
