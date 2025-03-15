@@ -1,5 +1,0 @@
-# Stock Smart AI - Database
-
-```
-
-```

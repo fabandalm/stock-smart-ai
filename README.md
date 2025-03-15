@@ -22,6 +22,15 @@ git clone https://github.com/fabandalm/stock-smart-ai.git
 docker-compose up -d
 ```
 
+#### Only for the first time - copy and run data script file
+``` 
+docker cp database/seed.sql stock-smart-ai-db:/stock-smart-ai-db/data/seed.sql
+```
+
+```
+docker exec -it stock-smart-ai-db psql -U postgres -d postgres -f /stock-smart-ai-db/data/seed.sql
+```
+
 ### Shut down the application
 ```
 docker-compose down
