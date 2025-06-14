@@ -1,0 +1,46 @@
+# overlays/dev/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: meshtier
+
+labels:
+  - pairs:
+      environment: local
+      app.kubernetes.io/part-of: stock-smart-ai
+    includeSelectors: true
+    includeTemplates: true
+
+resources:
+  - ../../base
+  - pvc.yaml
+  - ui-route.yaml
+
+configMapGenerator:
+  - name: backend-config
+    literals:
+      - DB_HOST=stock-smart-ai-db
+      - DB_PORT=5432
+      - ENVIRONMENT=local
+  - name: ui-config
+    literals:
+      - API_URL=http://stock-smart-ai-backend:8080
+      - ENVIRONMENT=local
+
+secretGenerator:
+  - name: db-secrets
+    literals:
+      - POSTGRES_PASSWORD=devpassword123
+  - name: backend-secrets
+    literals:
+      - DB_PASSWORD=devpassword123
+
+patches:
+  - path: db/postgres-pvc-patch.yaml
+  - path: backend/backend-resources-patch.yaml
+  - path: ui/ui-route-patch.yaml
+
+images:
+  - name: fabandalm/stock-smart-ai-api
+    newTag: latest-local
+  - name: fabandalm/stock-smart-ai-ui
+    newTag: latest-local

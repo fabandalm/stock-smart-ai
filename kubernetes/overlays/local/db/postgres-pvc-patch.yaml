@@ -1,0 +1,33 @@
+# overlays/dev/db-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-smart-ai-db
+spec:
+  selector:
+    matchLabels:
+      app: stock-smart-ai-db
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: postgres
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc-dev
+        - name: app-data
+          persistentVolumeClaim:
+            claimName: app-data-pvc-dev

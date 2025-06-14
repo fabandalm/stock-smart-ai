@@ -1,0 +1,40 @@
+# overlays/dev/ui-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-smart-ai-ui
+spec:
+  selector:
+    matchLabels:
+      app: stock-smart-ai-ui
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: ui
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: stock-smart-ai-ui
+spec:
+  host: stock-smart-ai-dev.example.com
+  to:
+    kind: Service
+    name: stock-smart-ai-ui
+    weight: 100
+  port:
+    targetPort: 80

@@ -1,0 +1,27 @@
+# overlays/dev/backend-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-smart-ai-backend
+spec:
+  selector:
+    matchLabels:
+      app: stock-smart-ai-backend
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: backend
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
