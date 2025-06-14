@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-smart-ai-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-smart-ai-db
+  template:
+    metadata:
+      labels:
+        app: stock-smart-ai-db
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:12.6
+          envFrom:
+            - secretRef:
+                name: db-secrets
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+            - name: app-data
+              mountPath: /stock-smart-ai-db/data
+          readinessProbe:
+            exec:
+              command:
+                - pg_isready
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc
+        - name: app-data
+          persistentVolumeClaim:
+            claimName: app-data-pvc

@@ -1,0 +1,16 @@
+# overlays/dev/ui-route.yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: stock-smart-ai-ui
+  labels:
+    environment: local
+    app.kubernetes.io/part-of: stock-smart-ai
+spec:
+  host: localhost  # Update with your domain
+  to:
+    kind: Service
+    name: stock-smart-ai-ui
+    weight: 100
+  port:
+    targetPort: 80

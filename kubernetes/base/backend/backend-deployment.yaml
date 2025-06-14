@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-smart-ai-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-smart-ai-backend
+  template:
+    metadata:
+      labels:
+        app: stock-smart-ai-backend
+    spec:
+      containers:
+        - name: backend
+          image: fabandalm/stock-smart-ai-api:1.0.0
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: backend-config
+            - secretRef:
+                name: backend-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
