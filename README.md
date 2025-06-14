@@ -1,3 +1,5 @@
+<meta name="description" content="Stock Smart AI">
+<meta name="keywords" content="stock, smart, ai, agent, mcp">
 <img src="images/logo.png" width="100" height="100" alt="Example Image">
 
 # Stock Smart AI
