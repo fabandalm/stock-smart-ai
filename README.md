@@ -38,6 +38,26 @@ docker exec -it stock-smart-ai-db psql -U postgres -d postgres -f /stock-smart-a
 docker-compose down
 ```
 
+### Running Tests
+
+#### Backend Tests
+```bash
+cd backend
+./gradlew test
+```
+
+#### Frontend Tests
+```bash
+cd frontend
+npm install  # First time only
+npm test
+```
+
+For CI environments, use:
+```bash
+CI=true npm test
+```
+
 ### Architecture
 
 ![stock smart_ai-architecture](/images/stock_smart_ai-architecture.png)
