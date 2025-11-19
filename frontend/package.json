@@ -75,7 +75,13 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/axios": "^0.9.36",
     "@types/simple-datatables": "^3.2.3"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(axios)/)"
+    ]
   }
 }
