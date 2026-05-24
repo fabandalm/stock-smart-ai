@@ -1,0 +1,16 @@
+responseFuture.whenCompleteAsync((response, throwable) -> {
+    // add here ↓
+    if (throwable != null) {
+        logger.error("Failed to produce to DLQ for correlationId: {} traceabilityId: {}",
+            result.getCorrelationId(), result.getTraceabilityId(), throwable);
+    } else {
+        if (logger.isInfoEnabled()) {
+            logger.info("Successfully produced to DLQ topic: {} partition: {} offset: {} correlationId: {} traceabilityId: {}",
+                result.getRecord().getTopic() + config.getDeadLetterTopicExt(),
+                response.getOffsets().get(0).getPartition(),
+                response.getOffsets().get(0).getOffset(),
+                result.getCorrelationId(),
+                result.getTraceabilityId());
+        }
+    }
+    // existing audit write continues...
