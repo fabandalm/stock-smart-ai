@@ -1,7 +1,8 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { UserProfile } from "../helpers/declarations";
 import { useNavigate } from "react-router";
 import { Login, Register } from "../services/AuthService";
+
 import { showErrorModal, showSuccessModal } from "../helpers/handlers";
 import React from "react";
 import axios from "axios";
