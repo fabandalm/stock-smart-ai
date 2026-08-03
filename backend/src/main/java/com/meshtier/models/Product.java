@@ -20,10 +20,10 @@ public class Product {
     private int quantity;
     private double price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Supplier supplier;
 
     private String barCode;

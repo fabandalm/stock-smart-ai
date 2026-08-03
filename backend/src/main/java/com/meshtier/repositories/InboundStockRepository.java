@@ -3,14 +3,22 @@ package com.meshtier.repositories;
 import com.meshtier.models.InboundStock;
 import com.meshtier.models.Product;
 import com.meshtier.models.Supplier;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
 public interface InboundStockRepository extends JpaRepository<InboundStock, Long> {
+
+    @Override
+    @EntityGraph(attributePaths = {"product", "product.category", "product.supplier", "supplier"})
+    List<InboundStock> findAll();
+
+    @EntityGraph(attributePaths = {"product", "product.category", "product.supplier", "supplier"})
     List<InboundStock> findByProduct(Product product);
 
+    @EntityGraph(attributePaths = {"product", "product.category", "product.supplier", "supplier"})
     List<InboundStock> findBySupplier(Supplier supplier);
 
     @Query(value = """
