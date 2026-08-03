@@ -65,18 +65,18 @@ const SideNav = (props: Props) => {
   ];
 
   return (
-    <aside className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-slate-900 border-r border-slate-800/80 flex flex-col justify-between">
+    <aside className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-[#0a101d] border-r border-[#1e2c47] flex flex-col justify-between">
       <div>
         {/* Brand Header */}
-        <div className="flex items-center space-x-3 px-6 py-5 border-b border-slate-800/60">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
+        <div className="flex items-center space-x-3 px-6 py-5 border-b border-[#1e2c47]">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#425D94] via-[#5a7bbd] to-[#7896d6] flex items-center justify-center text-white shadow-lg shadow-[#425D94]/30">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
           <div>
             <h1 className="font-extrabold text-lg text-white tracking-wide leading-tight">
-              StockSmart<span className="text-indigo-400">.AI</span>
+              StockSmart<span className="text-[#6d8ecf]">.AI</span>
             </h1>
             <p className="text-xs text-slate-400 font-medium">Enterprise Inventory</p>
           </div>
@@ -96,8 +96,8 @@ const SideNav = (props: Props) => {
                   to={item.path}
                   className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 ${
                     isActive
-                      ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/20 font-semibold"
-                      : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+                      ? "bg-gradient-to-r from-[#425D94] to-[#5a7bbd] text-white shadow-md shadow-[#425D94]/30 font-semibold"
+                      : "text-slate-400 hover:text-slate-200 hover:bg-[#141f36]"
                   }`}>
                   <div className="flex items-center space-x-3">
                     <span className={isActive ? "text-white" : "text-slate-400"}>{item.icon}</span>
@@ -106,7 +106,7 @@ const SideNav = (props: Props) => {
                   {item.badge && (
                     <span
                       className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold ${
-                        isActive ? "bg-white/20 text-white" : "bg-indigo-500/20 text-indigo-400"
+                        isActive ? "bg-white/20 text-white" : "bg-[#425D94]/30 text-[#85a4e3]"
                       }`}>
                       {item.badge}
                     </span>
@@ -119,7 +119,7 @@ const SideNav = (props: Props) => {
       </div>
 
       {/* Footer System Status */}
-      <div className="p-4 m-4 rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-900 border border-slate-700/50">
+      <div className="p-4 m-4 rounded-2xl bg-gradient-to-br from-[#121c31] to-[#182643] border border-[#233454]">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-semibold text-slate-300">System Health</span>
           <span className="flex h-2 w-2 relative">
@@ -127,8 +127,8 @@ const SideNav = (props: Props) => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
         </div>
-        <div className="w-full bg-slate-700/50 rounded-full h-1.5 mb-2 overflow-hidden">
-          <div className="bg-gradient-to-r from-indigo-500 to-emerald-400 h-1.5 rounded-full w-4/5"></div>
+        <div className="w-full bg-[#0d1526] rounded-full h-1.5 mb-2 overflow-hidden">
+          <div className="bg-gradient-to-r from-[#425D94] to-emerald-400 h-1.5 rounded-full w-4/5"></div>
         </div>
         <p className="text-xs text-slate-400 leading-normal">
           AI Stock Prediction model synchronized (99.4% accuracy)
@@ -139,4 +139,5 @@ const SideNav = (props: Props) => {
 };
 
 export default SideNav;
+
 

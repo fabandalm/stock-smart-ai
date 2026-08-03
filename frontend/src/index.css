@@ -7,8 +7,8 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #0f172a;
-    color: #f8fafc;
+    background-color: #0d1526;
+    color: #f1f5f9;
     overflow-x: hidden;
   }
 }
@@ -19,31 +19,35 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #0d1526;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #2b3c60;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #425D94;
 }
 
-/* Glassmorphism utilities */
+/* Steel Blue #425D94 Theme Utilities */
+.bg-brand {
+  background-color: #425D94;
+}
+.text-brand {
+  color: #5B79B5;
+}
+.border-brand {
+  border-color: #2b3c60;
+}
+
 .glass-panel {
-  background: rgba(30, 41, 59, 0.7);
+  background: rgba(24, 35, 60, 0.75);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(66, 93, 148, 0.25);
 }
 
-.glass-panel-light {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.glow-indigo {
-  box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.3);
+.glow-brand {
+  box-shadow: 0 0 25px -5px rgba(66, 93, 148, 0.45);
 }
 
 .glow-emerald {
