@@ -1,13 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap");
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0d1526;
+    color: #f1f5f9;
+    overflow-x: hidden;
+  }
+}
 
-html,
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1526;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b3c60;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #425D94;
+}
+
+/* Steel Blue #425D94 Theme Utilities */
+.bg-brand {
+  background-color: #425D94;
+}
+.text-brand {
+  color: #5B79B5;
+}
+.border-brand {
+  border-color: #2b3c60;
+}
+
+.glass-panel {
+  background: rgba(24, 35, 60, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(66, 93, 148, 0.25);
+}
+
+.glow-brand {
+  box-shadow: 0 0 25px -5px rgba(66, 93, 148, 0.45);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
 }
